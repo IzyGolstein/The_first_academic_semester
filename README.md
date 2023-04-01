@@ -19,4 +19,5 @@ Currently, I'm a **graduate program student at CMF**, a **Deep Learning School s
 - Which variables are the best predictors?
 -  Which binary variables are the best predictors? 
 - Does the geographical factor play any role in predicting inequality?
+
 Also in presentation there is a description of adaptive linear regression.
