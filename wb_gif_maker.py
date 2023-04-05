@@ -1,4 +1,9 @@
-"""TODO: add docstring here."""
+"""TODO: add docstring here - what the module does, how to invoke."""
+
+# Refactoring ideas (EP):
+# - separate data aquisition and plotting into two functions
+# - make hardcoded constants function arguments
+# - write temp *.png files to temporary directory
 
 import pandas as pd
 from pandas_datareader import wb
