@@ -1,0 +1,6 @@
+pandas
+pandas_datareader
+country_converter
+imageio
+kaleido
+moviepy
