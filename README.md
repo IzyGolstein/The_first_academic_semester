@@ -1,6 +1,6 @@
-# Short resume
+# 
 
-Hi! I'm a 19-year-old HSE student majoring in economics, with a keen interest in data science and data analytics. Over the past year, I have focused on learning Python and data-oriented libraries such as **Pandas**, **sklearn**, **Numpy**, **xgboost**, **plotly**, **matplotlib**, etc. 
+Hi! I'm a 19-year-old HSE student majoring in economics, with a keen interest in data science and data analytics. Over the past year, I have focused on learning Python and data-oriented libraries such as **Pandas**, **sklearn**, **Numpy**, **plotly**, **matplotlib**, etc. 
 
 I have participated in two Kaggle competitions: **banking scoring** and **prediction of user churn**. While studying at the CMF, I built a few functions that make it easy to **import macro data into Python** and even create a **gif with a distribution of the selected macro variable on the map**. 
 
