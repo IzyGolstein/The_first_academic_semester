@@ -1,4 +1,4 @@
-# 
+# Brief cv
 
 Hi! I'm a 19-year-old HSE student majoring in economics, with a keen interest in data science and data analytics. Over the past year, I have focused on learning Python and data-oriented libraries such as **Pandas**, **sklearn**, **Numpy**, **plotly**, **matplotlib**, etc. 
 
