@@ -1,3 +1,7 @@
+# EP - docstring goes here
+# EP - do not name file with semver, it shoudl be gif_maker.py
+
+# EP - run isort to sort the imports 
 import pandas as pd
 from pandas_datareader import wb
 import warnings
@@ -26,7 +30,7 @@ from sklearn.exceptions import ConvergenceWarning
     The function acquires the data from the World Bank, cleans it, and plots it on a world map. The resulting plot is
     saved as a series of PNG images, which are then converted into an animated GIF.
 
-    Parameters:
+    Parameters: EP - of which function?
     variable (str): The name of the variable to retrieve data for. Example: "Mobile cellular subscriptions (per 100 people)"
     countries (str or list): A string or list of strings containing the names of the countries to retrieve data for. Example: ['US', 'CN', 'JP']
     start_date (str): The start date for the time period to retrieve data for (in YYYY-MM-DD format). Example: "1980-01-01"
@@ -34,7 +38,9 @@ from sklearn.exceptions import ConvergenceWarning
     duration (float): The duration of the resulting animated GIF, in seconds. Example: 0.5
 """
 
+# EP: not clear variable vs name
 def acquire_data(variable, name, countries, start_date, end_date):
+    # EP - можно сделать вспомогатлельной функций, котрая этот словарь выдает  
     variables_dict = {
         "GDP per capita (constant 2010 US$)": "NY.GDP.PCAP.KD",
         "GDP growth (annual %)": "NY.GDP.MKTP.KD.ZG",
@@ -79,9 +85,14 @@ def acquire_data(variable, name, countries, start_date, end_date):
 
 
 def plot_data(df, variable_name, duration, output_dir="gifs"):
+    # EP: весь этот блок с подготвокой директории тянет на отдельную функцию
+    #     если вам эти файлы не очень нужны и удаляются, можно через 
+    #     https://docs.python.org/3/library/tempfile.html#tempfile.TemporaryDirectory
+    #     создавать и чистить
     # Создаем директорию для сохранения гифок
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
+    # EP: очень опасная функция - не надо так - кто-нибудь вызватл у себя в длиректориии и потер все файлы    
     # Удаляем все предыдущие изображения из директории
     for filename in os.listdir(output_dir):
         file_path = os.path.join(output_dir, filename)
@@ -128,6 +139,10 @@ def plot_data(df, variable_name, duration, output_dir="gifs"):
 
         map_layout = dict(title=col_name, geo=dict(showframe=True))
         map_actual = go.Figure(data=[map_data], layout=map_layout)
+        # EP: если смотерть строго, то операции с данными и запись в файл
+        #     они на разном уровне абстракции работают одна функция по идее
+        #     начала работать с данными - выдала данные, другая взяла 
+        #     - выдала картинку, третья, например, записала картинку в файл 
         filename = f"{col_name}.png"
         filepath = os.path.join(output_dir, filename)
         png_files.append(filepath)
@@ -160,6 +175,7 @@ def giffer(
     start_date="1960-01-01",
     end_date="2022-12-31",
 ):
+    # EP - variables_dict откуда сюда прилетает? Это какая-то глобальная переменная? 
     variable = variables_dict[variable_name]
     df = acquire_data(variable, variable_name, countries, start_date, end_date)
     plot_data(df, variable_name, duration)
